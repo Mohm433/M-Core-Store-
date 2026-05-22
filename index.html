@@ -12,15 +12,12 @@
     header { background: linear-gradient(135deg, var(--main-color), var(--main-dark)); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 10; }
     header h1 { margin: 0; font-size: 24px; font-weight: 900; }
  .commission-banner { background: var(--yellow); color: #0f0f1a; text-align: center; padding: 12px 20px; font-weight: 900; font-size: 15px; position: sticky; top: 66px; z-index: 9; }
- .commission-banner a { color: #0f0f1a; text-decoration: underline; }
  .auth-btn { background: white; color: var(--main-dark); padding: 8px 16px; border-radius: 8px; border: none; font-weight: 700; cursor: pointer; }
  .user-info { display: flex; align-items: center; gap: 10px; font-weight: 700; }
- .user-info img { width: 35px; height: 35px; border-radius: 50%; border: 2px solid white; }
  .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
  .filters { display: flex; gap: 12px; margin-bottom: 25px; flex-wrap: wrap; }
  .filters select,.filters input { flex: 1; min-width: 200px; padding: 14px; border-radius: 10px; border: 1px solid #2a2a40; background: #0f0f1a; color: var(--text); font-size: 16px; }
- .fab { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: 70px; height: 70px; background: var(--main-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; color: white; cursor: pointer; box-shadow: 0 8px 25px rgba(124, 58, 237, 0.6); z-index: 100; }
- .fab.disabled { opacity: 0.5; cursor: not-allowed; }
+ .fab { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: 70px; height: 70px; background: var(--main-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; color: white; cursor: pointer; z-index: 100; }
  .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 200; align-items: center; justify-content: center; padding: 20px; }
  .modal.active { display: flex; }
  .modal-content { background: var(--card-bg); padding: 30px; border-radius: 20px; width: 100%; max-width: 500px; border: 2px solid var(--main-color); max-height: 90vh; overflow-y: auto; }
@@ -30,34 +27,35 @@
  .commission-warning { background: #f59e0b20; border: 2px dashed var(--yellow); padding: 15px; border-radius: 12px; margin-bottom: 15px; text-align: center; font-weight: 700; color: var(--yellow); }
     input, textarea, select, button { width: 100%; padding: 14px; margin-top: 12px; border-radius: 10px; border: 1px solid #2a2a40; background: #0f0f1a; color: var(--text); font-size: 16px; }
     button { background: var(--main-color); color: white; font-weight: 700; cursor: pointer; border: none; }
-    button:hover { background: var(--main-dark); }
  .back-btn { background: #334155; }
  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
  .ad-card { background: var(--card-bg); padding: 20px; border-radius: 16px; border: 1px solid #2a2a40; position: relative; }
- .ad-card.sold { opacity: 0.6; border: 2px solid var(--green); }
  .ad-card img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin-bottom: 15px; }
  .price { color: var(--green); font-size: 24px; font-weight: 900; }
  .badge { background: var(--main-dark); padding: 5px 12px; border-radius: 8px; font-size: 13px; font-weight: 700; display: inline-block; margin-bottom: 10px; }
  .meta { color: #9ca3af; font-size: 14px; margin-top: 8px; }
  .delete-btn { background: var(--red); margin-top: 12px; width: 100%; }
- .sold-btn { background: var(--green); margin-top: 8px; width: 100%; }
  .commission-note { background: var(--yellow); color: #0f0f1a; padding: 8px; border-radius: 8px; text-align: center; font-weight: 700; font-size: 13px; margin-top: 10px; }
  .payment-info { background: #1e293b; padding: 10px; border-radius: 8px; margin-top: 10px; font-size: 13px; text-align: center; }
- .sold-stamp { position: absolute; top: 10px; left: 10px; background: var(--green); color: white; padding: 5px 15px; border-radius: 8px; font-weight: 900; transform: rotate(-15deg); }
+ .warning-box { background: #ef444420; border: 2px dashed var(--red); padding: 15px; border-radius: 12px; margin: 20px; text-align: center; font-weight: 700; color: var(--red); }
     footer { text-align: center; padding: 20px; color: #6b7280; margin-top: 40px; }
 </style>
 </head>
 <body>
 
 <header>
-    <h1>⚡ M-Core Store</h1>
+    <h1>⚡ M-Core Store Local</h1>
     <div id="authArea">
-        <button class="auth-btn" onclick="openLogin()">تسجيل الدخول</button>
+        <button class="auth-btn" onclick="fakeLogin()">دخول تجريبي</button>
     </div>
 </header>
 
 <div class="commission-banner">
-    ⚠️ تنبيه: عمولة M-Core Store <span>50%</span> تحول على <a href="tel:01002023793">01002023793</a> فودافون كاش بعد البيع
+    ⚠️ نسخة تجريبية - مفيش سيرفر. الإعلانات بتتحفظ على جهازك بس
+</div>
+
+<div class="warning-box">
+    🚨 تنبيه: النسخة دي مفيهاش سيرفر. يعني الإعلانات مش هتظهر للناس التانية. دي للتجربة بس.
 </div>
 
 <div class="container">
@@ -70,28 +68,13 @@
             <option value="موبايلات">📱 موبايلات</option>
             <option value="أخرى">📦 أخرى</option>
         </select>
-        <input type="text" id="search" placeholder="ابحث في M-Core Store..." onkeyup="loadAds()">
+        <input type="text" id="search" placeholder="ابحث..." onkeyup="loadAds()">
     </div>
     <h2>أحدث الإعلانات <span id="adsCount" style="color: #9ca3af; font-size: 18px;"></span></h2>
     <div id="adsContainer" class="grid"></div>
 </div>
 
-<div class="fab disabled" id="fabBtn" onclick="checkLogin()">+</div>
-
-<div class="modal" id="loginModal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h2>تسجيل الدخول لـ M-Core</h2>
-            <span class="close-btn" onclick="closeLogin()">&times;</span>
-        </div>
-        <button onclick="loginWithGoogle()" style="background: #db4437;">🔴 تسجيل بجوجل</button>
-        <hr style="border-color: #2a2a40;">
-        <input type="email" id="email" placeholder="الإيميل بتاعك">
-        <input type="password" id="password" placeholder="كلمة السر 6 أحرف">
-        <button onclick="registerWithEmail()">إنشاء حساب جديد</button>
-        <button onclick="loginWithEmail()" style="background: #334155;">دخول</button>
-    </div>
-</div>
+<div class="fab" id="fabBtn" onclick="openPost()">+</div>
 
 <div class="modal" id="postModal">
     <div class="modal-content">
@@ -110,7 +93,7 @@
         </div>
         <div class="step" id="step2" style="display:none;">
             <div class="commission-warning">
-                ⚠️ بالضغط على نشر، أنت موافق أن عمولتنا 50% تتحول على رقم 01002023793 بعد البيع
+                ⚠️ عمولتنا 50% تتحول على رقم 01002023793 بعد البيع
             </div>
             <input type="hidden" id="selectedCategory">
             <input type="text" id="title" placeholder="1. اسم المنتج">
@@ -121,7 +104,7 @@
             <input type="url" id="image" placeholder="6. رابط صورة المنتج">
             <div style="display: flex; gap: 10px; margin-top: 20px;">
                 <button class="back-btn" onclick="backToStep1()">رجوع</button>
-                <button onclick="publishAd()" style="flex: 2;">🚀 موافق وأنشر</button>
+                <button onclick="publishAd()" style="flex: 2;">🚀 أنشر</button>
             </div>
         </div>
     </div>
@@ -129,87 +112,74 @@
 
 <footer>© 2026 M-Core Store - رقم العمولة: 01002023793 ❤️</footer>
 
-<script type="module">
-    // رقمك للعمولة - متغير في كل الموقع
-    const ADMIN_NUMBER = "01002023793"; // فودافون كاش بتاعك
-    const INSTAPAY_NUMBER = "01002023793"; // حط رقم انستاباي لو حابب
-
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-    import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendEmailVerification, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-    import { getFirestore, collection, addDoc, getDocs, query, orderBy, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-    const firebaseConfig = {
-  apiKey: "AIzaSyA...",
-  authDomain: "m-core-store.firebaseapp.com",
-  projectId: "m-core-store",
-  storageBucket: "m-core-store.appspot.com",
-  messagingSenderId: "123456",
-  appId: "1:123:web:abc"
-};
-    
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
-    const provider = new GoogleAuthProvider();
-    let currentUser = null;
+<script>
+    const ADMIN_NUMBER = "01002023793";
+    let currentUser = {uid: 'local-user', name: 'ضيف'};
     let currentCategory = '';
+    let ads = JSON.parse(localStorage.getItem('mcore_ads')) || [];
 
-    window.openLogin = () => document.getElementById('loginModal').classList.add('active');
-    window.closeLogin = () => document.getElementById('loginModal').classList.remove('active');
+    window.fakeLogin = () => {
+        document.getElementById('authArea').innerHTML = `<div class="user-info"><span>ضيف تجريبي</span><button class="auth-btn" onclick="logout()">خروج</button></div>`;
+        alert('دخلت كضيف. دي نسخة تجريبية بس');
+    }
+    window.logout = () => { document.getElementById('authArea').innerHTML = `<button class="auth-btn" onclick="fakeLogin()">دخول تجريبي</button>`; }
+
     window.openPost = () => { showStep(1); document.getElementById('postModal').classList.add('active'); }
     window.closePost = () => document.getElementById('postModal').classList.remove('active');
-    window.checkLogin = () => { if(!currentUser) alert('لازم تسجل دخول الأول'); else openPost(); }
     function showStep(n) { document.querySelectorAll('.step').forEach(s => s.style.display = 'none'); document.getElementById('step' + n).style.display = 'block'; document.getElementById('modalTitle').innerText = n === 1? 'اختار التصنيف' : 'كمل بيانات الإعلان'; }
     window.selectCategory = (cat) => { currentCategory = cat; document.getElementById('selectedCategory').value = cat; showStep(2); }
     window.backToStep1 = () => showStep(1);
-    window.loginWithGoogle = async () => { try { await signInWithPopup(auth, provider); closeLogin(); } catch (e) { alert('خطأ: ' + e.message); } }
-    window.registerWithEmail = async () => { let email = document.getElementById('email').value; let pass = document.getElementById('password').value; try { let userCred = await createUserWithEmailAndPassword(auth, email, pass); await sendEmailVerification(userCred.user); alert('تم إنشاء الحساب. فعل إيميلك الأول'); closeLogin(); } catch (e) { alert('خطأ: ' + e.message); } }
-    window.loginWithEmail = async () => { let email = document.getElementById('email').value; let pass = document.getElementById('password').value; try { let userCred = await signInWithEmailAndPassword(auth, email, pass); if (!userCred.user.emailVerified) { alert('فعل إيميلك الأول'); return; } closeLogin(); } catch (e) { alert('خطأ: ' + e.message); } }
-    window.logout = async () => { await signOut(auth); }
-    window.publishAd = async () => { if (!currentUser) return alert('لازم تسجل دخول'); let ad = { uid: currentUser.uid, name: currentUser.displayName || currentUser.email.split('@')[0], category: currentCategory, title: document.getElementById('title').value, price: document.getElementById('price').value, location: document.getElementById('location').value, phone: document.getElementById('phone').value, desc: document.getElementById('desc').value, image: document.getElementById('image').value || 'https://via.placeholder.com/400x220/1a1a2e/7c3aed?text=M-Core', createdAt: new Date(), sold: false }; if (!ad.title ||!ad.price ||!ad.phone) return alert('كمل البيانات'); await addDoc(collection(db, "ads"), ad); closePost(); loadAds(); document.querySelectorAll('#step2 input, #step2 textarea').forEach(el => el.value = ''); alert('✅ تم النشر'); }
-    window.deleteAd = async (id) => { if (confirm('تمسح الإعلان؟')) { await deleteDoc(doc(db, "ads", id)); loadAds(); } }
-    window.markAsSold = async (id) => { if (confirm(`علمت الإعلان إنه اتباع؟ حول عمولة M-Core Store 50% على رقم ${ADMIN_NUMBER} فودافون كاش`)) { await updateDoc(doc(db, "ads", id), { sold: true }); loadAds(); } }
 
-    async function loadAds() {
+    window.publishAd = () => {
+        let ad = { 
+            id: Date.now(), name: currentUser.name, category: currentCategory, 
+            title: document.getElementById('title').value, price: document.getElementById('price').value,
+            location: document.getElementById('location').value, phone: document.getElementById('phone').value,
+            desc: document.getElementById('desc').value, image: document.getElementById('image').value || 'https://via.placeholder.com/400x220/1a1a2e/7c3aed?text=M-Core',
+        };
+        if (!ad.title ||!ad.price ||!ad.phone) return alert('كمل البيانات');
+        ads.push(ad);
+        localStorage.setItem('mcore_ads', JSON.stringify(ads));
+        closePost(); loadAds(); document.querySelectorAll('#step2 input, #step2 textarea').forEach(el => el.value = '');
+        alert('✅ تم النشر على جهازك');
+    }
+
+    window.deleteAd = (id) => {
+        if (confirm('تمسح الإعلان؟')) {
+            ads = ads.filter(a => a.id != id);
+            localStorage.setItem('mcore_ads', JSON.stringify(ads));
+            loadAds();
+        }
+    }
+
+    function loadAds() {
         let filterCat = document.getElementById('filterCategory').value;
         let searchText = document.getElementById('search').value.toLowerCase();
-        let q = query(collection(db, "ads"), orderBy("createdAt", "desc"));
-        let snap = await getDocs(q);
         let html = ''; let count = 0;
-        snap.forEach(docSnap => {
-            let ad = docSnap.data();
+        ads.reverse().forEach(ad => {
             let matchCat = filterCat === 'الكل' || ad.category === filterCat;
             let matchSearch = ad.title.toLowerCase().includes(searchText) || ad.desc.toLowerCase().includes(searchText);
             if (matchCat && matchSearch) {
                 count++;
-                let isOwner = currentUser && currentUser.uid === ad.uid;
                 let yourShare = Number(ad.price) / 2;
-                let commissionShare = Number(ad.price) / 2;
-                html += `<div class="ad-card ${ad.sold? 'sold' : ''}">
-                    ${ad.sold? '<div class="sold-stamp">تم البيع</div>' : ''}
+                html += `<div class="ad-card">
                     <img src="${ad.image}" onerror="this.src='https://via.placeholder.com/400x220/1a1a2e/7c3aed?text=M-Core'">
                     <span class="badge">${ad.category}</span>
                     <h3>${ad.title}</h3>
                     <p style="color: #9ca3af;">${ad.desc}</p>
                     <p class="price">${Number(ad.price).toLocaleString('ar-EG')} جنيه</p>
-                    <div class="commission-note">💰 نصيبك: ${yourShare.toLocaleString('ar-EG')} جنيه | عمولتنا: ${commissionShare.toLocaleString('ar-EG')} جنيه</div>
-                    <div class="payment-info">
-                        📲 حول عمولتنا على: <br>
-                        فودافون كاش: <a href="tel:${ADMIN_NUMBER}" style="color: var(--yellow); font-weight: 700;">${ADMIN_NUMBER}</a>
-                    </div>
+                    <div class="commission-note">💰 نصيبك: ${yourShare.toLocaleString('ar-EG')} جنيه</div>
+                    <div class="payment-info">📲 حول عمولتنا على: <a href="tel:${ADMIN_NUMBER}" style="color: var(--yellow); font-weight: 700;">${ADMIN_NUMBER}</a></div>
                     <p class="meta">📍 ${ad.location} - ${ad.name}</p>
                     <p class="meta">📱 <a href="https://wa.me/2${ad.phone.replace(/\D/g,'')}" target="_blank" style="color:var(--green); font-weight: 700;">${ad.phone}</a></p>
-                    ${isOwner &&!ad.sold? `<button class="sold-btn" onclick="markAsSold('${docSnap.id}')">✅ تم البيع</button>` : ''}
-                    ${isOwner? `<button class="delete-btn" onclick="deleteAd('${docSnap.id}')">🗑️ مسح</button>` : ''}
+                    <button class="delete-btn" onclick="deleteAd('${ad.id}')">🗑️ مسح</button>
                 </div>`;
             }
         });
         document.getElementById('adsCount').innerText = `(${count})`;
         document.getElementById('adsContainer').innerHTML = html || '<p style="text-align:center; padding: 40px; grid-column: 1/-1;">مفيش إعلانات لسه 🔥</p>';
     }
-    onAuthStateChanged(auth, user => { currentUser = user; let authArea = document.getElementById('authArea'); let fabBtn = document.getElementById('fabBtn'); if (user) { authArea.innerHTML = `<div class="user-info"><img src="${user.photoURL || 'https://via.placeholder.com/35'}" alt=""><span>${user.displayName || user.email.split('@')[0]}</span><button class="auth-btn" onclick="logout()">خروج</button></div>`; fabBtn.classList.remove('disabled'); fabBtn.onclick = openPost; } else { authArea.innerHTML = `<button class="auth-btn" onclick="openLogin()">تسجيل الدخول</button>`; fabBtn.classList.add('disabled'); fabBtn.onclick = checkLogin; } loadAds(); });
+    loadAds();
 </script>
 </body>
-  </html>
+</html>
