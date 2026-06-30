@@ -1,185 +1,110 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>M-Core Store - سوق دمنهور الشامل</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-    :root { --main-color: #7c3aed; --main-dark: #5b21b6; --bg: #0f0f1a; --card-bg: #1a1a2e; --text: #e5e7eb; --green: #10b981; --red: #ef4444; --yellow: #f59e0b; }
-    * { box-sizing: border-box; font-family: 'Cairo', sans-serif; }
-    body { background: var(--bg); color: var(--text); margin: 0; padding: 0 0 100px 0; }
-    header { background: linear-gradient(135deg, var(--main-color), var(--main-dark)); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 10; }
-    header h1 { margin: 0; font-size: 24px; font-weight: 900; }
- .commission-banner { background: var(--yellow); color: #0f0f1a; text-align: center; padding: 12px 20px; font-weight: 900; font-size: 15px; position: sticky; top: 66px; z-index: 9; }
- .auth-btn { background: white; color: var(--main-dark); padding: 8px 16px; border-radius: 8px; border: none; font-weight: 700; cursor: pointer; }
- .user-info { display: flex; align-items: center; gap: 10px; font-weight: 700; }
- .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
- .filters { display: flex; gap: 12px; margin-bottom: 25px; flex-wrap: wrap; }
- .filters select,.filters input { flex: 1; min-width: 200px; padding: 14px; border-radius: 10px; border: 1px solid #2a2a40; background: #0f0f1a; color: var(--text); font-size: 16px; }
- .fab { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: 70px; height: 70px; background: var(--main-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; color: white; cursor: pointer; z-index: 100; }
- .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 200; align-items: center; justify-content: center; padding: 20px; }
- .modal.active { display: flex; }
- .modal-content { background: var(--card-bg); padding: 30px; border-radius: 20px; width: 100%; max-width: 500px; border: 2px solid var(--main-color); max-height: 90vh; overflow-y: auto; }
- .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
- .modal-header h2 { margin: 0; color: var(--main-color); }
- .close-btn { font-size: 30px; cursor: pointer; color: var(--red); }
- .commission-warning { background: #f59e0b20; border: 2px dashed var(--yellow); padding: 15px; border-radius: 12px; margin-bottom: 15px; text-align: center; font-weight: 700; color: var(--yellow); }
-    input, textarea, select, button { width: 100%; padding: 14px; margin-top: 12px; border-radius: 10px; border: 1px solid #2a2a40; background: #0f0f1a; color: var(--text); font-size: 16px; }
-    button { background: var(--main-color); color: white; font-weight: 700; cursor: pointer; border: none; }
- .back-btn { background: #334155; }
- .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
- .ad-card { background: var(--card-bg); padding: 20px; border-radius: 16px; border: 1px solid #2a2a40; position: relative; }
- .ad-card img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin-bottom: 15px; }
- .price { color: var(--green); font-size: 24px; font-weight: 900; }
- .badge { background: var(--main-dark); padding: 5px 12px; border-radius: 8px; font-size: 13px; font-weight: 700; display: inline-block; margin-bottom: 10px; }
- .meta { color: #9ca3af; font-size: 14px; margin-top: 8px; }
- .delete-btn { background: var(--red); margin-top: 12px; width: 100%; }
- .commission-note { background: var(--yellow); color: #0f0f1a; padding: 8px; border-radius: 8px; text-align: center; font-weight: 700; font-size: 13px; margin-top: 10px; }
- .payment-info { background: #1e293b; padding: 10px; border-radius: 8px; margin-top: 10px; font-size: 13px; text-align: center; }
- .warning-box { background: #ef444420; border: 2px dashed var(--red); padding: 15px; border-radius: 12px; margin: 20px; text-align: center; font-weight: 700; color: var(--red); }
-    footer { text-align: center; padding: 20px; color: #6b7280; margin-top: 40px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مسابقة FC Points - Mohmmed Gaming</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+    body { font-family: 'Cairo', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #dc2626 0%, #f97316 100%); }
+  </style>
 </head>
-<body>
+<body class="bg-slate-900 text-white min-h-screen">
 
-<header>
-    <h1>⚡ M-Core Store Local</h1>
-    <div id="authArea">
-        <button class="auth-btn" onclick="fakeLogin()">دخول تجريبي</button>
+  <!-- Header -->
+  <header class="gradient-bg py-8 text-center shadow-lg">
+    <h1 class="text-4xl md:text-5xl font-black">🔥 مسابقة FC Points 🔥</h1>
+    <p class="mt-2 text-lg">برعاية قناة Mohmmed Gaming</p>
+  </header>
+
+  <div class="container mx-auto px-4 py-10 max-w-4xl">
+
+    <!-- Prize Box -->
+    <div class="bg-slate-800 rounded-2xl p-6 shadow-xl border-orange-500/30">
+      <h2 class="text-2xl font-bold text-orange-400">الجايزة الاسبوع ده:</h2>
+      <p class="text-3xl font-black my-2">1000 FC Point</p>
+      <p class="text-slate-400">سيتم السحب يوم الجمعة الساعة 10م لايف</p>
+      
+      <!-- Countdown -->
+      <div id="countdown" class="flex gap-4 mt-4 justify-center text-center">
+        <div><span id="days" class="text-3xl font-bold">00</span><p>يوم</p></div>
+        <div><span id="hours" class="text-3xl font-bold">00</span><p>ساعة</p></div>
+        <div><span id="mins" class="text-3xl font-bold">00</span><p>دقيقة</p></div>
+      </div>
     </div>
-</header>
 
-<div class="commission-banner">
-    ⚠️ نسخة تجريبية - مفيش سيرفر. الإعلانات بتتحفظ على جهازك بس
-</div>
+    <!-- Entry Form -->
+    <div class="bg-slate-800 rounded-2xl p-6 mt-8 shadow-xl">
+      <h2 class="text-2xl font-bold mb-4">ادخل المسابقة</h2>
+      <p class="text-slate-400 mb-4">3 خطوات بس وتدخل السحب:</p>
+      <ol class="list-decimal list-inside text-slate-300 space-y-2 mb-6">
+        <li>اعمل اشتراك في القناة: <a id="yt-link" href="https://youtube.com/@mohmmedgaming-e6p?si=-KB2HPPnC3kNLKC1" target="_blank" class="text-red-500 font-bold underline">Mohmmed Gaming</a></li>
+        <li>اعمل لايك لاخر فيديو</li>
+        <li>املأ الفورم تحت + حط سكرينشوت</li>
+      </ol>
 
-<div class="warning-box">
-    🚨 تنبيه: النسخة دي مفيهاش سيرفر. يعني الإعلانات مش هتظهر للناس التانية. دي للتجربة بس.
-</div>
-
-<div class="container">
-    <div class="filters">
-        <select id="filterCategory" onchange="loadAds()">
-            <option value="الكل">🔍 كل التصنيفات</option>
-            <option value="حيوانات أليفة">🐱 حيوانات أليفة</option>
-            <option value="اكسسوارات">⌚ اكسسوارات</option>
-            <option value="كمبيوتر ولابات">💻 كمبيوتر ولابات</option>
-            <option value="موبايلات">📱 موبايلات</option>
-            <option value="أخرى">📦 أخرى</option>
-        </select>
-        <input type="text" id="search" placeholder="ابحث..." onkeyup="loadAds()">
+      <form id="entry-form" class="space-y-4">
+        <input type="text" id="name" placeholder="اسمك في اللعبة" required class="w-full p-3 rounded-lg bg-slate-700 border-slate-600 focus:outline-none focus:border-orange-500">
+        <input type="email" id="email" placeholder="ايميل EA بتاعك" required class="w-full p-3 rounded-lg bg-slate-700 border-slate-600 focus:outline-none focus:border-orange-500">
+        <input type="url" id="proof" placeholder="حط لينك سكرينشوت الاشتراك من Imgur" required class="w-full p-3 rounded-lg bg-slate-700 border-slate-600 focus:outline-none focus:border-orange-500">
+        <button type="submit" class="w-full gradient-bg p-3 rounded-lg font-bold text-lg hover:scale-105 transition">دخلني السحب</button>
+      </form>
+      <p id="success-msg" class="hidden mt-4 text-green-400 font-bold">تم! انت دخلت السحب بنجاح ✅</p>
     </div>
-    <h2>أحدث الإعلانات <span id="adsCount" style="color: #9ca3af; font-size: 18px;"></span></h2>
-    <div id="adsContainer" class="grid"></div>
-</div>
 
-<div class="fab" id="fabBtn" onclick="openPost()">+</div>
-
-<div class="modal" id="postModal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h2 id="modalTitle">اختار التصنيف</h2>
-            <span class="close-btn" onclick="closePost()">&times;</span>
-        </div>
-        <div class="step active" id="step1">
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px;">
-                <button onclick="selectCategory('حيوانات أليفة')" style="background:#0f0f1a; border:2px solid #2a2a40; padding:20px 10px;">🐱<br>حيوانات</button>
-                <button onclick="selectCategory('اكسسوارات')" style="background:#0f0f1a; border:2px solid #2a2a40; padding:20px 10px;">⌚<br>اكسسوارات</button>
-                <button onclick="selectCategory('كمبيوتر ولابات')" style="background:#0f0f1a; border:2px solid #2a2a40; padding:20px 10px;">💻<br>كمبيوتر</button>
-                <button onclick="selectCategory('موبايلات')" style="background:#0f0f1a; border:2px solid #2a2a40; padding:20px 10px;">📱<br>موبايلات</button>
-                <button onclick="selectCategory('أخرى')" style="background:#0f0f1a; border:2px solid #2a2a40; padding:20px 10px;">📦<br>أخرى</button>
-            </div>
-        </div>
-        <div class="step" id="step2" style="display:none;">
-            <div class="commission-warning">
-                ⚠️ عمولتنا 50% تتحول على رقم 01002023793 بعد البيع
-            </div>
-            <input type="hidden" id="selectedCategory">
-            <input type="text" id="title" placeholder="1. اسم المنتج">
-            <input type="number" id="price" placeholder="2. السعر الكامل بالجنيه">
-            <input type="text" id="location" placeholder="3. المكان">
-            <input type="text" id="phone" placeholder="4. رقم الواتساب">
-            <textarea id="desc" placeholder="5. وصف تفصيلي" rows="3"></textarea>
-            <input type="url" id="image" placeholder="6. رابط صورة المنتج">
-            <div style="display: flex; gap: 10px; margin-top: 20px;">
-                <button class="back-btn" onclick="backToStep1()">رجوع</button>
-                <button onclick="publishAd()" style="flex: 2;">🚀 أنشر</button>
-            </div>
-        </div>
+    <!-- Admin Pick Winner -->
+    <div class="bg-slate-800 rounded-2xl p-6 mt-8 shadow-xl">
+      <h2 class="text-2xl font-bold mb-4">لوحة التحكم - للادمن بس</h2>
+      <button id="pick-winner" class="w-full bg-green-600 p-3 rounded-lg font-bold text-lg hover:bg-green-500 transition">اسحب فائز عشوائي</button>
+      <p id="winner-result" class="mt-4 text-center text-xl"></p>
     </div>
-</div>
 
-<footer>© 2026 M-Core Store - رقم العمولة: 01002023793 ❤️</footer>
+  </div>
 
 <script>
-    const ADMIN_NUMBER = "01002023793";
-    let currentUser = {uid: 'local-user', name: 'ضيف'};
-    let currentCategory = '';
-    let ads = JSON.parse(localStorage.getItem('mcore_ads')) || [];
+  // 1. عداد تنازلي للجمعة 10م
+  function updateCountdown() {
+    const now = new Date();
+    const nextFriday = new Date();
+    nextFriday.setDate(now.getDate() + (5 + 7 - now.getDay()) % 7);
+    nextFriday.setHours(22, 0, 0, 0);
+    const diff = nextFriday - now;
 
-    window.fakeLogin = () => {
-        document.getElementById('authArea').innerHTML = `<div class="user-info"><span>ضيف تجريبي</span><button class="auth-btn" onclick="logout()">خروج</button></div>`;
-        alert('دخلت كضيف. دي نسخة تجريبية بس');
+    document.getElementById('days').innerText = String(Math.floor(diff / 86400000)).padStart(2,'0');
+    document.getElementById('hours').innerText = String(Math.floor(diff / 3600000) % 24).padStart(2,'0');
+    document.getElementById('mins').innerText = String(Math.floor(diff / 60000) % 60).padStart(2,'0');
+  }
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  // 2. حفظ البيانات في localStorage - للتجربة
+  const form = document.getElementById('entry-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const entries = JSON.parse(localStorage.getItem('mohmmed_entries') || '[]');
+    entries.push({
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      proof: document.getElementById('proof').value
+    });
+    localStorage.setItem('mohmmed_entries', JSON.stringify(entries));
+    document.getElementById('success-msg').classList.remove('hidden');
+    form.reset();
+  });
+
+  // 3. سحب فائز عشوائي
+  document.getElementById('pick-winner').addEventListener('click', () => {
+    const entries = JSON.parse(localStorage.getItem('mohmmed_entries') || '[]');
+    if(entries.length === 0) {
+      alert('مفيش مشتركين لسه');
+      return;
     }
-    window.logout = () => { document.getElementById('authArea').innerHTML = `<button class="auth-btn" onclick="fakeLogin()">دخول تجريبي</button>`; }
-
-    window.openPost = () => { showStep(1); document.getElementById('postModal').classList.add('active'); }
-    window.closePost = () => document.getElementById('postModal').classList.remove('active');
-    function showStep(n) { document.querySelectorAll('.step').forEach(s => s.style.display = 'none'); document.getElementById('step' + n).style.display = 'block'; document.getElementById('modalTitle').innerText = n === 1? 'اختار التصنيف' : 'كمل بيانات الإعلان'; }
-    window.selectCategory = (cat) => { currentCategory = cat; document.getElementById('selectedCategory').value = cat; showStep(2); }
-    window.backToStep1 = () => showStep(1);
-
-    window.publishAd = () => {
-        let ad = { 
-            id: Date.now(), name: currentUser.name, category: currentCategory, 
-            title: document.getElementById('title').value, price: document.getElementById('price').value,
-            location: document.getElementById('location').value, phone: document.getElementById('phone').value,
-            desc: document.getElementById('desc').value, image: document.getElementById('image').value || 'https://via.placeholder.com/400x220/1a1a2e/7c3aed?text=M-Core',
-        };
-        if (!ad.title ||!ad.price ||!ad.phone) return alert('كمل البيانات');
-        ads.push(ad);
-        localStorage.setItem('mcore_ads', JSON.stringify(ads));
-        closePost(); loadAds(); document.querySelectorAll('#step2 input, #step2 textarea').forEach(el => el.value = '');
-        alert('✅ تم النشر على جهازك');
-    }
-
-    window.deleteAd = (id) => {
-        if (confirm('تمسح الإعلان؟')) {
-            ads = ads.filter(a => a.id != id);
-            localStorage.setItem('mcore_ads', JSON.stringify(ads));
-            loadAds();
-        }
-    }
-
-    function loadAds() {
-        let filterCat = document.getElementById('filterCategory').value;
-        let searchText = document.getElementById('search').value.toLowerCase();
-        let html = ''; let count = 0;
-        ads.reverse().forEach(ad => {
-            let matchCat = filterCat === 'الكل' || ad.category === filterCat;
-            let matchSearch = ad.title.toLowerCase().includes(searchText) || ad.desc.toLowerCase().includes(searchText);
-            if (matchCat && matchSearch) {
-                count++;
-                let yourShare = Number(ad.price) / 2;
-                html += `<div class="ad-card">
-                    <img src="${ad.image}" onerror="this.src='https://via.placeholder.com/400x220/1a1a2e/7c3aed?text=M-Core'">
-                    <span class="badge">${ad.category}</span>
-                    <h3>${ad.title}</h3>
-                    <p style="color: #9ca3af;">${ad.desc}</p>
-                    <p class="price">${Number(ad.price).toLocaleString('ar-EG')} جنيه</p>
-                    <div class="commission-note">💰 نصيبك: ${yourShare.toLocaleString('ar-EG')} جنيه</div>
-                    <div class="payment-info">📲 حول عمولتنا على: <a href="tel:${ADMIN_NUMBER}" style="color: var(--yellow); font-weight: 700;">${ADMIN_NUMBER}</a></div>
-                    <p class="meta">📍 ${ad.location} - ${ad.name}</p>
-                    <p class="meta">📱 <a href="https://wa.me/2${ad.phone.replace(/\D/g,'')}" target="_blank" style="color:var(--green); font-weight: 700;">${ad.phone}</a></p>
-                    <button class="delete-btn" onclick="deleteAd('${ad.id}')">🗑️ مسح</button>
-                </div>`;
-            }
-        });
-        document.getElementById('adsCount').innerText = `(${count})`;
-        document.getElementById('adsContainer').innerHTML = html || '<p style="text-align:center; padding: 40px; grid-column: 1/-1;">مفيش إعلانات لسه 🔥</p>';
-    }
-    loadAds();
+    const winner = entries[Math.floor(Math.random() * entries.length)];
+    document.getElementById('winner-result').innerHTML = `الفائز هو: <span class="text-orange-400 font-black">${winner.name}</span> - ${winner.email}`;
+  });
 </script>
+
 </body>
 </html>
